@@ -1,55 +1,3 @@
-Windows PowerShell
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
-
-PS C:\Users\pink1> cd .\repos\ai-course\
-PS C:\Users\pink1\repos\ai-course> ls
-
-
-    Directory: C:\Users\pink1\repos\ai-course
-
-
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
-d-----        18-10-2025     18:54                A1
-d-----        06-12-2025     17:04                a2
-d-----        06-10-2025     12:50                merged_faces
--a----        18-10-2025     15:46            177 .gitignore
--a----        18-10-2025     23:02            273 README.md
-
-
-PS C:\Users\pink1\repos\ai-course> cd ..
-PS C:\Users\pink1\repos> cd .\agentic-ai-project\
-PS C:\Users\pink1\repos\agentic-ai-project>
-PS C:\Users\pink1\repos\agentic-ai-project> Start-Transcript -Path .\logs\sample-run.txt -Encoding UTF8
-Start-Transcript : A parameter cannot be found that matches parameter name 'Encoding'.
-At line:1 char:46
-+ Start-Transcript -Path .\logs\sample-run.txt -Encoding UTF8
-+                                              ~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Start-Transcript], ParameterBindingException
-    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.StartTranscriptCommand
-
-PS C:\Users\pink1\repos\agentic-ai-project> set PYTHONIOENCODING=utf-8
-PS C:\Users\pink1\repos\agentic-ai-project> python .\main.py
-Traceback (most recent call last):
-  File "C:\Users\pink1\repos\agentic-ai-project\main.py", line 6, in <module>
-    from dotenv import load_dotenv
-ModuleNotFoundError: No module named 'dotenv'
-PS C:\Users\pink1\repos\agentic-ai-project>
-PS C:\Users\pink1\repos\agentic-ai-project>
-PS C:\Users\pink1\repos\agentic-ai-project> venv\Scripts\Activate
-(venv) PS C:\Users\pink1\repos\agentic-ai-project> Start-Transcript -Path .\logs\sample-run.txt -Encoding UTF8
-Start-Transcript : A parameter cannot be found that matches parameter name 'Encoding'.
-At line:1 char:46
-+ Start-Transcript -Path .\logs\sample-run.txt -Encoding UTF8
-+                                              ~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Start-Transcript], ParameterBindingException
-    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.StartTranscriptCommand
-
-(venv) PS C:\Users\pink1\repos\agentic-ai-project> Start-Transcript -Path .\logs\sample-run.txt
-Transcript started, output file is .\logs\sample-run.txt
-(venv) PS C:\Users\pink1\repos\agentic-ai-project> python main.py
 ============================================================
 Restaurant Success Prediction Utilizing Agentic AI
 ============================================================
@@ -3217,6 +3165,3 @@ Layer 4 - 2025-12-08 23:55:33
 
 <3 Assignment completed successfully!
 Check the output above for detailed results from each agent.
-(venv) PS C:\Users\pink1\repos\agentic-ai-project> Stop-Transcript
-Transcript stopped, output file is C:\Users\pink1\repos\agentic-ai-project\logs\sample-run.txt
-(venv) PS C:\Users\pink1\repos\agentic-ai-project>
