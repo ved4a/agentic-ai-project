@@ -166,5 +166,58 @@ def create_tasks(agents, data_path, data_context):
         expected_output="Business insights report with actionable recommendations grounded in validated findings",
         context=[task3, task4]
     )
+
+    task6 = Task(
+        description=f"""
+          Using the consolidated findings (EDA, feature engineering, modeling, validation, and insights),
+          create a BI-style action plan aimed at restaurant owners and regional operations managers.
+
+          STRUCTURE YOUR OUTPUT EXACTLY AS FOLLOWS (Markdown):
+          1. Executive Summary (3 to 5 bullet points)
+          2. Key Drivers of Restaurant Success
+          3. Restaurant Segments & Profiles (e.g., "High-end, High-Rating")
+          4. Recommended Actions by Segment
+              - Short-term (0 to 3 months)
+              - Medium-term (3 to 12 months)
+              - Low-cost / High-impact actions
+          5. Metrics & Dashboards to Track
+          6. Risks, Assumptions, and Caveats
+
+          Be concrete and business-focused. Use the data context as evidence and label any speculation as an assumption.
+
+          DATA CONTEXT (condensed for the strategist):
+          {shared_context}
+          """,
+        agent=agents["action_plan_generator"],
+        expected_output="A single coherent Markdown document that could be handed directly to a restaurant owner as a strategic action plan.",
+        context=[task1,task2,task3,task4,task5]
+    )
     
-    return [task1, task2, task3, task4, task5]
+    task7 = Task(
+        description=f"""
+        Using the data context (distributions, correlations) and previous analyses, perform a qualitative scenario analysis.
+        For each of the following 'levers', describe:
+        - Expected impact on rating (direction & relative magnitude)
+        - Which restaurant segments benefit most
+        - Risks or downsides
+        Levers:
+        1) Enabling online delivery for restaurants that currently don't have it
+        2) Adding table booking to mid-price restaurants in major cities
+        3) Reducing price range by 1 step for high-price, medium-rating restaurants
+        4) Introducing an additional popular cuisine (e.g., North Indian) in low-rating restaurants
+        Use the statistics in the data context as your grounding. Be explicit when you are
+        inferring beyond the data.
+
+        DATA CONTEXT (focused for scenario testing):
+        {shared_context}
+        """,
+        agent=agents["scenario_agent"],
+        expected_output=(
+            "A structured scenario analysis with sections per lever, including expected impacts "
+            "and business recommendations."
+        ),
+        context=[task1, task2]
+    )
+    return [task1, task2, task3, task4, task5, task6, task7]
+    # return [task1, task2, task3, task4, task7]
+    # return [task1, task2, task3, task4, task5]
