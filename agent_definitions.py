@@ -69,10 +69,36 @@ def create_agents():
         max_iter=2
     )
     
+    # Agent 6: Action Plan Generator
+    action_plan_generator = Agent(
+        role="Restaurant Strategy Architect",
+        goal="Convert validated findings into a structured action plan for operators",
+        backstory="""You advise multi-location restaurant groups on how to translate analytics into
+        business execution. You synthesize findings into clear, sequenced actions that
+        executives can deploy immediately.""",
+        verbose=True,
+        allow_delegation=False,
+        max_iter=2
+    )
+
+    # Agent 7: Scenario Strategist
+    scenario_agent = Agent(
+        role="Scenario Planning Specialist",
+        goal="Stress-test strategic levers using grounded data context",
+        backstory="""You explore what-if scenarios for hospitality brands.
+        You quantify directional impact, highlight affected segments, and surface risks
+        whenever leadership considers operational changes.""",
+        verbose=True,
+        allow_delegation=False,
+        max_iter=2
+    )
+    
     return {
         'data_analyst': data_analyst,
         'feature_engineer': feature_engineer,
         'model_builder': model_builder,
         'validator': validator,
-        'insight_generator': insight_generator
+        'insight_generator': insight_generator,
+        'action_plan_generator': action_plan_generator,
+        'scenario_agent': scenario_agent
     }
